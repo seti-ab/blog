@@ -1,10 +1,12 @@
-import './App.css';
+import Counter from './features/counter/Counter';
+import PostsList from './features/posts/PostsList';
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <main className="container mx-auto">
+      {/* <Counter /> */}
+      <PostsList />
+    </main>
   );
 }
 
