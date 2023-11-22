@@ -1,4 +1,5 @@
 import Counter from './features/counter/Counter';
+import AddPostForm from './features/posts/AddPostForm';
 import PostsList from './features/posts/PostsList';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <main className="container mx-auto">
       {/* <Counter /> */}
       <PostsList />
+      <AddPostForm/>
     </main>
   );
 }
