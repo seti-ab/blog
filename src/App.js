@@ -4,7 +4,7 @@ import PostsList from './features/posts/PostsList';
 
 function App() {
   return (
-    <main className="container mx-auto">
+    <main className="container mx-auto px-4">
       {/* <Counter /> */}
       <PostsList />
       <AddPostForm/>
