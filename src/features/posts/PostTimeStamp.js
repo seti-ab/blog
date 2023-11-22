@@ -1,10 +1,19 @@
-import React from 'react'
-import { pasrIso, formatDistanceToNow } from "dat-fns";
+import React from "react";
+import { parseISO, formatDistanceToNow } from "date-fns";
 
-const PostTimeStamp = ({timestamp}) => {
-    return (
-        <div>PostTimeStamp</div>
-    )
-}
+const PostTimestamp = ({ timestamp }) => {
+  let timeAgo = "";
+  if (timestamp) {
+    const date = parseISO(timestamp);
+    const timePeriod = formatDistanceToNow(date);
+    timeAgo = timePeriod + " ago";
+  }
+  
+  return (
+    <span title={timestamp}>
+      &nbsp;<i>{timeAgo}</i>
+    </span>
+  );
+};
 
-export default PostTimeStamp
+export default PostTimestamp;
