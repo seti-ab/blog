@@ -4,8 +4,9 @@ import { addNewPost } from "./postSlice";
 import { selectAllusers } from "../users/usersSlice";
 
 const AddPostForm = () => {
-  const InitialFormState = { title: "", content: "", userId: "" };
+  const InitialFormState = { title: "", body: "", userId: "" };
   const [formData, setFormData] = useState(InitialFormState);
+  const [addRequestStatus, setAddRequestStatus] = useState("idle");
   const dispatch = useDispatch();
   const users = useSelector(selectAllusers);
 
@@ -16,22 +17,27 @@ const AddPostForm = () => {
   };
 
   const handleValidation = () => {
-    if (
-      Boolean(formData.title) &&
-      Boolean(formData.content) &&
-      Boolean(formData.userId)
-    ) {
+    const { title, body, userId } = formData;
+    if ([title, body, userId].every(Boolean) && addRequestStatus === "idle") {
       return true;
     } else return false;
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     const formIsValid = handleValidation();
+
     if (formIsValid) {
-      dispatch(addNewPost({ ...formData }));
-      setFormData(InitialFormState);
+      try {
+        setAddRequestStatus("pending");
+        dispatch(addNewPost({...formData})).unwrap();
+        setFormData(InitialFormState);
+      } catch (err) {
+        console.log("Faild to save post", err)
+      } finally {
+        setAddRequestStatus("idle")
+      }
     } else {
-      alert("Form validation failed");
+      console.log("Form validation failed");
     }
   };
 
@@ -87,17 +93,17 @@ const AddPostForm = () => {
 
         <div className="col-span-full">
           <label
-            htmlFor="content"
+            htmlFor="body"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
-            Content
+            body
           </label>
           <div className="mt-2">
             <textarea
               onChange={handleChange}
-              value={formData.content}
-              id="content"
-              name="content"
+              value={formData.body}
+              id="body"
+              name="body"
               rows={3}
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
