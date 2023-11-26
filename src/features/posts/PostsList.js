@@ -1,25 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { selectAllPosts, getPostsStatus, getPostsError, fetchPosts } from "./postSlice";
 import PostExcerpt from "./PostExcerpt";
 
-
 const PostsList = () => {
-  const dispatch = useDispatch();
   const posts = useSelector(selectAllPosts);
   const status = useSelector(getPostsStatus);
   const error = useSelector(getPostsError);
-
-
-  useEffect(() => {
-    let isCurrent = true;
-    if (isCurrent === true && status === "idle") {
-      dispatch(fetchPosts());
-    }
-    return () => {
-      isCurrent = false;
-    }
-  }, [status, dispatch])
 
   let content;
   if (status === "loading") {
@@ -34,12 +21,9 @@ const PostsList = () => {
     content = <p>{error}</p>
   }
   return (
-    <div>
-      <h2>Posts</h2>
-      <section className="divide-y divide-gray-200">
-        {content}
-      </section>
-    </div>
+    <section className="divide-y divide-gray-200">
+      {content}
+    </section>
   );
 };
 
