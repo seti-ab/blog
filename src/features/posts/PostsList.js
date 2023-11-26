@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { selectAllPosts, getPostsStatus, getPostsError, fetchPosts } from "./postSlice";
+import { selectAllPosts, getPostsStatus, getPostsError } from "./postSlice";
 import PostExcerpt from "./PostExcerpt";
 
 const PostsList = () => {

@@ -108,9 +108,9 @@ function Header() {
           <Link to="post" className="text-sm font-semibold leading-6 text-gray-900">
             Posts
           </Link>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Company
-          </a>
+          <Link to="user" className="text-sm font-semibold leading-6 text-gray-900">
+            Users
+          </Link>
         </Popover.Group>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
@@ -167,32 +167,32 @@ function Header() {
                     </>
                   )}
                 </Disclosure>
-                <a
-                  href="#"
+                <Link
+                  to="/"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Features
-                </a>
-                <a
-                  href="#"
+                  Home
+                </Link>
+                <Link
+                  to="post"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Marketplace
-                </a>
-                <a
-                  href="#"
+                  Posts
+                </Link>
+                <Link
+                  to="user"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Company
-                </a>
+                  Users
+                </Link>
               </div>
               <div className="py-6">
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Log in
-                </a>
+                </Link>
               </div>
             </div>
           </div>
