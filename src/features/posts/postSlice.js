@@ -1,14 +1,18 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, createSelector, createEntityAdapter } from "@reduxjs/toolkit";
 import axios from "axios";
 import { sub } from "date-fns";
 
-const initialState = {
-    posts: [],
-    status: 'idle',
-    error: null
-};
 
 const POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
+
+const postsAdapter = createEntityAdapter({
+    sortComparer: (a, b) => b.date.localeCompare(a.date)
+})
+
+const initialState = postsAdapter.getInitialState({
+    status: 'idle',
+    error: null
+});
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
     try {
@@ -59,7 +63,7 @@ const postSlice = createSlice({
     reducers: {
         addReaction(state, action) {
             const { postId, reaction } = action.payload;
-            const currentPost = state.posts.find((post) => post.id === postId);
+            const currentPost = state.entities[postId];
             currentPost && currentPost.reactions[reaction]++;
         },
     }, extraReducers(builder) {
@@ -83,13 +87,21 @@ const postSlice = createSlice({
                     return post;
                 });
                 //Add any fetched posts to the array
-                state.posts = state.posts.concat(loadedPosts)
+                postsAdapter.upsertMany(state, loadedPosts);
             })
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.status = "failed";
                 state.error = action.error.message;
             })
             .addCase(addNewPost.fulfilled, (state, action) => {
+                console.log("test",state.posts)
+                const sortedPosts = state.posts?.sort((a, b) => {
+                    if (a.id > b.id) return 1
+                    if (a.id < b.id) return -1
+                    return 0
+                })
+                action.payload.id = sortedPosts[sortedPosts?.length - 1].id + 1;
+                action.payload.userId=Number(action.payload.userId)
                 action.payload.date = new Date().toISOString();
                 action.payload.reactions = {
                     thumbsUp: 0,
@@ -98,7 +110,7 @@ const postSlice = createSlice({
                     rocket: 0,
                     coffee: 0
                 }
-                state.posts.push(action.payload);
+                postsAdapter.addOne(state, action.payload);
             })
             .addCase(updatePost.fulfilled, (state, action) => {
                 if (!action.payload?.id) {
@@ -107,32 +119,27 @@ const postSlice = createSlice({
                     return;
                 }
                 action.payload.date = new Date().toISOString();
-                const { id } = action.payload;
-                const posts = state.posts.filter(post => post.id !== id);
-                state.posts = [...posts, action.payload];
+                postsAdapter.upsertOne(state, action.payload);
 
             })
-            .addCase(deletePost.fulfilled,(state,action)=>{
+            .addCase(deletePost.fulfilled, (state, action) => {
                 if (!action.payload?.id) {
                     console.log("Delete failed !");
                     console.log(action.payload);
                     return;
                 }
                 action.payload.date = new Date().toISOString();
-                const { id } = action.payload;
-                const posts = state.posts.filter(post => post.id !== id);
-                state.posts = posts;
+                postsAdapter.removeOne(state, action.payload.id);
             })
 
     }
 }
 
 );
-export const selectAllPosts = (state) => state.posts.posts;
+export const { selectAll: selectAllPosts, selectById: selectPostById, selectIds: selectPostIds } = postsAdapter.getSelectors(state => state.posts)
+
 export const getPostsStatus = (state) => state.posts.status;
 export const getPostsError = (state) => state.posts.error;
-
-export const selectPostById = (state, postId) => state.posts.posts.find(post => post.id === postId)
 
 export const { addReaction } = postSlice.actions;
 

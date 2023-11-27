@@ -3,8 +3,11 @@ import PostAuthor from "./PostAuthor";
 import PostTimestamp from "./PostTimestamp";
 import ReactionButtons from "./ReactionButtons";
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectPostById } from './postSlice';
 
-const PostExcerpt = ({post}) => {
+const PostExcerpt = ({ postId }) => {
+    const post = useSelector(state => selectPostById(state, postId));
     return (
         <article className="py-4 flex">
             <div className="ml-3">

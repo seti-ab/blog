@@ -29,7 +29,7 @@ const AddPostForm = () => {
     if (formIsValid) {
       try {
         setAddRequestStatus("pending");
-        dispatch(addNewPost({...formData})).unwrap();
+        dispatch(addNewPost({ ...formData })).unwrap();
         setFormData(InitialFormState);
       } catch (err) {
         console.log("Faild to save post", err)
