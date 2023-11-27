@@ -92,16 +92,12 @@ const postSlice = createSlice({
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.status = "failed";
                 state.error = action.error.message;
+                console.log("test", state.posts)
             })
             .addCase(addNewPost.fulfilled, (state, action) => {
-                console.log("test",state.posts)
-                const sortedPosts = state.posts?.sort((a, b) => {
-                    if (a.id > b.id) return 1
-                    if (a.id < b.id) return -1
-                    return 0
-                })
-                action.payload.id = sortedPosts[sortedPosts?.length - 1].id + 1;
-                action.payload.userId=Number(action.payload.userId)
+                action.payload.id = state.ids[state.ids.length - 1] + 1
+
+                action.payload.userId = Number(action.payload.userId)
                 action.payload.date = new Date().toISOString();
                 action.payload.reactions = {
                     thumbsUp: 0,
@@ -110,7 +106,8 @@ const postSlice = createSlice({
                     rocket: 0,
                     coffee: 0
                 }
-                postsAdapter.addOne(state, action.payload);
+                console.log(action.payload)
+                postsAdapter.addOne(state, action.payload)
             })
             .addCase(updatePost.fulfilled, (state, action) => {
                 if (!action.payload?.id) {
@@ -136,10 +133,18 @@ const postSlice = createSlice({
 }
 
 );
-export const { selectAll: selectAllPosts, selectById: selectPostById, selectIds: selectPostIds } = postsAdapter.getSelectors(state => state.posts)
+export const {
+    selectAll: selectAllPosts,
+    selectById: selectPostById,
+    selectIds: selectPostIds } = postsAdapter.getSelectors(state => state.posts)
 
 export const getPostsStatus = (state) => state.posts.status;
 export const getPostsError = (state) => state.posts.error;
+
+export const selectPostsByUser = createSelector(
+    [selectAllPosts, (state, userId) => userId],
+    (posts, userId) => posts.filter(post => post.userId === userId)
+)
 
 export const { addReaction } = postSlice.actions;
 
