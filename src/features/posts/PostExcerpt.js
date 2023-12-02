@@ -15,7 +15,7 @@ const PostExcerpt = ({post}) => {
                 <PostAuthor userId={post.userId} />
                 <PostTimestamp timestamp={post.date} />
                 <ReactionButtons post={post} />
-                <Link to={`post/${post.id}`}>View Post</Link>
+                <Link to={`posts/${post.id}`}>View Post</Link>
             </div>
         </article>
     )

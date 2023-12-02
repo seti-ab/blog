@@ -27,7 +27,7 @@ const SinglePostPage = () => {
                 <PostAuthor userId={post.userId} />
                 <PostTimestamp timestamp={post.date} />
                 <ReactionButtons post={post} />
-                <Link to={`/post/edit/${post.id}`}>Edit Post</Link>
+                <Link to={`/posts/edit/${post.id}`}>Edit Post</Link>
             </div>
         </article>
     )
