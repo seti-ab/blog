@@ -3,7 +3,7 @@ import axios from "axios";
 import { sub } from "date-fns";
 
 
-const POSTS_URL = "https://jsonplaceholder.typicode.com/posts";
+const POSTS_URL = "http://localhost:8000/posts";
 
 const postsAdapter = createEntityAdapter({
     sortComparer: (a, b) => b.date.localeCompare(a.date)
