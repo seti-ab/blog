@@ -179,7 +179,7 @@ export default function Header() {
           to="/"
           className="mr-4 cursor-pointer py-1.5 lg:ml-2"
         >
-          Blog
+          Blog Demo
         </Link>
         <div className="hidden lg:block">
           <NavList />
