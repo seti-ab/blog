@@ -18,7 +18,7 @@ const UserPage = () => {
                 {userPosts.map(post => {
                     return (
                         <li key={post.id}>
-                            <Link to={`/post/${post.id}`}>{post.title}</Link>
+                            <Link to={`/posts/${post.id}`}>{post.title}</Link>
                         </li>
                     )
                 })}
