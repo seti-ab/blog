@@ -17,6 +17,18 @@
       "title": "third post",
       "body": "something",
       "userId": "1"
+    },
+    {
+      "id": 4,
+      "title": "forth post",
+      "body": "something",
+      "userId": "2"
+    },
+    {
+      "id": 5,
+      "title": "fifth post",
+      "body": "something",
+      "userId": "2"
     }
   ],
   "users": [
