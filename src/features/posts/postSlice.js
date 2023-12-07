@@ -74,25 +74,30 @@ const postSlice = createSlice({
             .addCase(fetchPosts.fulfilled, (state, action) => {
                 state.status = "succeeded";
                 let min = "1";
-                const loadedPosts = action.payload.map(post => {
-                    post.date = sub(new Date(), { minutes: min++ }).toISOString();
-                    post.reactions = {
-                        thumbsUp: 0,
-                        wow: 0,
-                        heart: 0,
-                        rocket: 0,
-                        coffee: 0
+                let loadedPosts = [];
+                if (action.payload !== "Network Error") {
+                    loadedPosts = action.payload.map(post => {
+                        post.date = sub(new Date(), { minutes: min++ }).toISOString();
+                        post.reactions = {
+                            thumbsUp: 0,
+                            wow: 0,
+                            heart: 0,
+                            rocket: 0,
+                            coffee: 0
 
-                    };
-                    return post;
-                });
+                        };
+                        return post;
+                    });
+                } else {
+                    state.status = action.payload;
+                }
                 //Add any fetched posts to the array
                 postsAdapter.upsertMany(state, loadedPosts);
             })
             .addCase(fetchPosts.rejected, (state, action) => {
                 state.status = "failed";
                 state.error = action.error.message;
-                console.log("test", state.posts)
+
             })
             .addCase(addNewPost.fulfilled, (state, action) => {
                 action.payload.id = state.ids[state.ids.length - 1] + 1

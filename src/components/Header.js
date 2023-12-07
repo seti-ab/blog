@@ -25,11 +25,11 @@ function Header() {
   }, [location])
 
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-transparent w-full absolute absolute top-0 left-1/2 transform -translate-x-1/2 px-5">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
+            <div className="relative flex h-16 items-center justify-between border-b-2">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
@@ -49,19 +49,19 @@ function Header() {
                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                     alt="Your Company"
                   />
-                  <h2 className='text-blue'>Blog Name</h2>
+                  <h2 className='text-blue ml-2 font-bold'>Blog Name</h2>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <div className="hidden sm:ml-6 sm:block">
+                <div className="hidden sm:mx-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
                         to={item.path}
                         className={classNames(
-                          currentPage === item.path ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium'
+                          currentPage === item.path ? 'border-b-4' : 'text-gray-300 hover:border-b-4 hover:text-white',
+                          'px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={currentPage === item.path ? 'page' : undefined}
                       >
@@ -70,17 +70,19 @@ function Header() {
                     ))}
                   </div>
                 </div>
-                <button
+                {/* <button
                   type="button"
                   className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
+                </button> */}
+                <button class="bg-violet-500 hover:bg-blue-700 text-white font-bold py-1 px-4 border border-none rounded">
+                  Login
                 </button>
-
                 {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-3">
+                {/* <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
@@ -134,7 +136,7 @@ function Header() {
                       </Menu.Item>
                     </Menu.Items>
                   </Transition>
-                </Menu>
+                </Menu> */}
               </div>
             </div>
           </div>
