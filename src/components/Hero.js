@@ -9,10 +9,10 @@ import heroImage from "../assets/images/Screenshot 2023-12-04 195032.png"
 export default function Hero() {
 
     return (
-        <div className="bg-violet-950">
+        <div className="bg-violet-950 h-[80vh]">
             <div className="relative isolate px-6 pt-14 lg:px-8">
                 <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-                    <div className="w-screen h-screen bg-gradient-to-r from-violet-950 to-violet-700" /></div>
+                    <div className="w-screen h-screen bg-gradient-to-r from-violet-950 to-violet-700"/></div>
                 <div className="mx-auto py-6 sm:py-8">
 
                     <div className="hidden sm:mb-8 sm:flex sm:justify-center">
@@ -24,7 +24,7 @@ export default function Hero() {
               </a>
             </div> */}
                     </div>
-                    <div className="flex justify-between w-full h-100">
+                    <div className="flex justify-between mx-auto h-60 max-w-7xl px-2 sm:px-6 lg:px-8">
                         <ImageCard imageSrc={heroImage} title="Test" className="w-50" />
                         <Card className="w-50" title="Sunset in the mountains" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil." />
                         {/* <div>

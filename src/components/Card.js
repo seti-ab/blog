@@ -3,7 +3,7 @@ import React from 'react'
 const Card = ({image,title,content}) => {
     return (
         <div class="rounded overflow-hidden shadow-lg w-full h-full">
-            {image && <img class="w-full" src={image} alt="card image"/>}
+            {image && <img class="w-full" src={image} alt="card"/>}
             <div class="px-6 py-4">
                 <div class="font-bold text-xl mb-2">{title}</div>
                 <p class="text-gray-700 text-base">
