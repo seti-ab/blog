@@ -4,14 +4,14 @@ import Footer from "./Footer";
 import Hero from "./Hero";
 const Layout = () => {
     return (
-        <>
+        <div className="bg-secondary">
             <Hero />
             <Header />
-            <main className="container mx-auto max-w-screen-xl my-5 min-h-screen">
+            <main className="container mx-auto max-w-screen-xl pb-5 pt-28 min-h-screen">
                 <Outlet />
             </main>
             <Footer />
-        </>
+        </div>
     )
 }
 export default Layout;
