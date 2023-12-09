@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewPost } from "./postSlice";
 import { selectAllusers } from "../users/usersSlice";
+import { useNavigate } from "react-router";
 
 const AddPostForm = () => {
   const InitialFormState = { title: "", body: "", userId: "" };
@@ -9,7 +10,7 @@ const AddPostForm = () => {
   const [addRequestStatus, setAddRequestStatus] = useState("idle");
   const dispatch = useDispatch();
   const users = useSelector(selectAllusers);
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     let temp = { ...formData };
     temp[e.target.name] = e.target.value;
@@ -29,8 +30,10 @@ const AddPostForm = () => {
     if (formIsValid) {
       try {
         setAddRequestStatus("pending");
-        dispatch(addNewPost({...formData})).unwrap();
+        const { title, body, userId } = formData;
+        dispatch(addNewPost({ title, body, userId })).unwrap();
         setFormData(InitialFormState);
+        navigate("/");
       } catch (err) {
         console.log("Faild to save post", err)
       } finally {
