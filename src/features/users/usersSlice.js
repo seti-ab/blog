@@ -19,9 +19,13 @@ const userSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers(builder) {
-        builder.addCase(fetchUsers.fulfilled, (state, action) => {
-            return action.payload;
-        })
+        builder
+            .addCase(fetchUsers.pending, (state, action) => {
+                state.status = "loading"
+            })
+            .addCase(fetchUsers.fulfilled, (state, action) => {
+                return action.payload;
+            })
     }
 })
 

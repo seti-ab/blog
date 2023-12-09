@@ -19,7 +19,7 @@ const PostsList = () => {
     content = <p>{error}</p>
   }
   return (
-    <section className="divide-y divide-gray-200">
+    <section className="flex gap-5 justify-center flex-wrap">
       {content}
     </section>
   );
