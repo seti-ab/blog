@@ -12,7 +12,7 @@ const ReactionButtons = ({ post }) => {
     rocket: "🚀",
   };
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-3 mt-4">
       {Object.entries(reactionEmojis).map(([name, emoji]) => (
         <button type="button" key={name} onClick={() => dispatch(addReaction({ postId: post.id, reaction: name }))}>
           {emoji}{post.reactions[name]}

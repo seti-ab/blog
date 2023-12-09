@@ -4,12 +4,12 @@ import { selectAllusers } from '../users/usersSlice';
 
 const PostAuthor = ({ userId }) => {
     const users = useSelector(selectAllusers);
-    const author = users.find(user => user.id === userId);
+    const author = users.find(user => user.id === Number(userId));
 
     return (
-        <div className="text-sm leading-6 inline-flex">
+        <div className="text-sm leading-6 inline-flex mt-6">
             <p className="font-semibold text-gray-900">
-                by {author ? author.name : "Unknown Author"}
+                by {author?.username}
             </p>
         </div>
     )

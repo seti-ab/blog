@@ -5,22 +5,22 @@ import ReactionButtons from "./ReactionButtons";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectPostById } from './postSlice';
+import Card from '../../components/Card';
+import CardImage from "../../assets/images/placeholder.jpeg";
 
 const PostExcerpt = ({ postId }) => {
     const post = useSelector(state => selectPostById(state, postId));
     return (
-        <article className="py-4 flex">
-            <div className="ml-3">
-                <p className="text-sm font-medium text-gray-900">{post.title}</p>
-                <p className="text-sm text-gray-500">
-                    {post.body.substring(0, 100)}
-                </p>
+        <Link to={`posts/${post.id}`} className="flex hover:bg-gray-100 basis-[30%] h-90 justify-center">
+            <Card
+                image={CardImage}
+                title={post.title}
+                content={`${post.body.substring(0, 50)}...`}>
                 <PostAuthor userId={post.userId} />
-                <PostTimestamp timestamp={post.date} />
+                <PostTimestamp date={post.date} />
                 <ReactionButtons post={post} />
-                <Link to={`posts/${post.id}`}>View Post</Link>
-            </div>
-        </article>
+            </Card>
+        </Link>
     )
 }
 

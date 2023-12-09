@@ -25,7 +25,7 @@ function Header() {
   }, [location])
 
   return (
-    <Disclosure as="nav" className="bg-transparent w-full absolute absolute top-0 left-1/2 transform -translate-x-1/2 px-5">
+    <Disclosure as="nav" className="bg-transparent w-full absolute top-0 left-1/2 transform -translate-x-1/2 px-5">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

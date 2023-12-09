@@ -1,17 +1,14 @@
 import React from "react";
-import { parseISO, formatDistanceToNow } from "date-fns";
+import moment from 'moment';
 
-const PostTimestamp = ({ timestamp }) => {
-  let timeAgo = "";
-  if (timestamp) {
-    const date = parseISO(timestamp);
-    const timePeriod = formatDistanceToNow(date);
-    timeAgo = timePeriod + " ago";
+const PostTimestamp = ({ date }) => {
+  let timestamp = "";
+  if (date) {
+    timestamp = moment(date).format('MMMM Do YYYY');
   }
-  
   return (
     <span title={timestamp}>
-      &nbsp;<i>{timeAgo}</i>
+      &nbsp;<i>{timestamp}</i>
     </span>
   );
 };

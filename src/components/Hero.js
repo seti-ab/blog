@@ -18,8 +18,8 @@ export default function Hero() {
                     <div className="hidden sm:mb-8 sm:flex sm:justify-center">
                     </div>
                     <div className="flex justify-between mx-auto h-[60vh] gap-7 mt-16 max-w-7xl px-2 sm:px-6 lg:px-8">
-                        <ImageCard imageSrc={heroImage} title="Test" className="basis-7/12" />
-                        <Card className="basis-5/12" title="Sunset in the mountains" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil." />
+                        <ImageCard imageSrc={heroImage} title="Test" className="basis-7/12 shadow-xl" />
+                        <Card label="Featured Articles" className="px-12 basis-5/12 rounded-2xl p-12 shadow-xl" title="Sunset in the mountains" content="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil." />
                     </div>
                 </div>
             </div>
