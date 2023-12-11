@@ -1,12 +1,11 @@
 import { createAsyncThunk, createSlice, createSelector, createEntityAdapter } from "@reduxjs/toolkit";
 import axios from "axios";
-import { sub } from "date-fns";
 
 
 const POSTS_URL = "http://localhost:8000/posts";
 
 const postsAdapter = createEntityAdapter({
-    sortComparer: (a, b) => b.date.localeCompare(a.date)
+    sortComparer: (a, b) => b.date.localeCompare(a.date),
 })
 
 const initialState = postsAdapter.getInitialState({
@@ -16,7 +15,7 @@ const initialState = postsAdapter.getInitialState({
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
     try {
-        const response = await axios.get(POSTS_URL)
+        const response = await axios.get(POSTS_URL);
         return [...response.data];
     } catch (err) {
         return err.message;
@@ -73,11 +72,10 @@ const postSlice = createSlice({
             })
             .addCase(fetchPosts.fulfilled, (state, action) => {
                 state.status = "succeeded";
-                let min = "1";
                 let loadedPosts = [];
                 if (action.payload !== "Network Error") {
                     loadedPosts = action.payload.map(post => {
-                        post.date = sub(new Date(), { minutes: min++ }).toISOString();
+                        post.date = new Date(post.date).toISOString();
                         post.reactions = {
                             thumbsUp: 0,
                             wow: 0,
@@ -111,7 +109,7 @@ const postSlice = createSlice({
                     rocket: 0,
                     coffee: 0
                 }
-                console.log(action.payload)
+                console.log(action.payload);
                 postsAdapter.addOne(state, action.payload)
             })
             .addCase(updatePost.fulfilled, (state, action) => {

@@ -19,7 +19,7 @@ const PostsList = () => {
     content = <p>{error}</p>
   }
   return (
-    <section className="flex gap-5 justify-center flex-wrap">
+    <section className="flex justify-center flex-wrap gap-12">
       {content}
     </section>
   );
