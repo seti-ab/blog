@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { selectPostById } from './postSlice';
 import PostAuthor from './PostAuthor';
-import PostTimestamp from './PostTimestamp';
+import Timestamp from './Timestamp';
 import ReactionButtons from './ReactionButtons';
 import { Link, useParams } from 'react-router-dom';
 import { PencilSquareIcon } from '@heroicons/react/20/solid';
@@ -27,7 +27,7 @@ const SinglePostPage = () => {
                 </p>
                 <div className='flex flex-col mt-16'>
                     <PostAuthor userId={post.userId} />
-                    <PostTimestamp date={post.date} />
+                    <Timestamp date={post.date} />
                 </div>
                 <div className='flex sm:flex-row flex-col sm:justify-between items-center gap-y-6'>
                     <div className='flex sm:w-fit w-[100%]'><ReactionButtons post={post} /></div>

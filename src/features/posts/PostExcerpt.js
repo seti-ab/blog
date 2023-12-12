@@ -1,6 +1,6 @@
 import React from 'react'
 import PostAuthor from "./PostAuthor";
-import PostTimestamp from "./PostTimestamp";
+import Timestamp from "./Timestamp";
 import ReactionButtons from "./ReactionButtons";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -19,7 +19,7 @@ const PostExcerpt = ({ postId }) => {
                 >
                 <div className='flex items-center justify-between mt-6'>
                     <PostAuthor userId={post.userId} />
-                    <PostTimestamp date={post.date} />
+                    <Timestamp date={post.date} />
                 </div>
                 <ReactionButtons post={post} />
             </Card>
