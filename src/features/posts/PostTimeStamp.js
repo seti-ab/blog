@@ -7,9 +7,7 @@ const PostTimestamp = ({ date }) => {
     timestamp = moment(date).format('MMMM Do YYYY');
   }
   return (
-    <span title={timestamp}>
-      &nbsp;<i>{timestamp}</i>
-    </span>
+    <i>{timestamp}</i>
   );
 };
 

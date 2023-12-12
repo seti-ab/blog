@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, createSelector, createEntityAdapter } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, createSelector, createEntityAdapter, current } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
@@ -60,10 +60,13 @@ const postSlice = createSlice({
     name: "posts",
     initialState,
     reducers: {
-        addReaction(state, action) {
+        toggleReaction(state, action) {
             const { postId, reaction } = action.payload;
             const currentPost = state.entities[postId];
-            currentPost && currentPost.reactions[reaction]++;
+            if (currentPost) {
+                Object.keys(currentPost.reactions).forEach(reaction => currentPost.reactions[reaction] = false)
+                currentPost.reactions[reaction] = !currentPost.reactions[reaction];
+            }
         },
     }, extraReducers(builder) {
         builder
@@ -77,11 +80,9 @@ const postSlice = createSlice({
                     loadedPosts = action.payload.map(post => {
                         post.date = new Date(post.date).toISOString();
                         post.reactions = {
-                            thumbsUp: 0,
-                            wow: 0,
-                            heart: 0,
-                            rocket: 0,
-                            coffee: 0
+                            thumbsUp: false,
+                            thumbsDown: false,
+                            heart: false,
 
                         };
                         return post;
@@ -103,11 +104,9 @@ const postSlice = createSlice({
                 action.payload.userId = Number(action.payload.userId)
                 action.payload.date = new Date().toISOString();
                 action.payload.reactions = {
-                    thumbsUp: 0,
-                    wow: 0,
-                    heart: 0,
-                    rocket: 0,
-                    coffee: 0
+                    thumbsUp: false,
+                    heart: false,
+                    thumbsDown: false,
                 }
                 console.log(action.payload);
                 postsAdapter.addOne(state, action.payload)
@@ -149,6 +148,6 @@ export const selectPostsByUser = createSelector(
     (posts, userId) => posts.filter(post => post.userId === userId)
 )
 
-export const { addReaction } = postSlice.actions;
+export const { toggleReaction } = postSlice.actions;
 
 export default postSlice.reducer;
