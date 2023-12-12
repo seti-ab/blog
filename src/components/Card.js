@@ -9,8 +9,8 @@ const Card = (props) => {
         <div className={classNames("rounded-xl overflow-hidden w-full h-full bg-white", props.className)}>
             {props.image && <img className="w-full" src={props.image} alt={props.title} />}
             <div className='px-8 py-2'>
-                <div className="font-bold text-xl my-2 min-h-max">{props.title}</div>
-                <p className="text-gray-700 text-base h-20">
+                <div className="font-bold text-xl my-2 min-h-[84px]">{props.title}</div>
+                <p className="text-gray-700 text-base h-20 overflow-auto">
                     {props.content}
                 </p>
                 {props.children}

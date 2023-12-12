@@ -11,11 +11,11 @@ import CardImage from "../../assets/images/placeholder.jpeg";
 const PostExcerpt = ({ postId }) => {
     const post = useSelector(state => selectPostById(state, postId));
     return (
-        <Link to={`/posts/${post.id}`} className="flex hover:bg-gray-100 md:basis-[30%] h-90 justify-center px-6 md:p-0">
+        <Link to={`/posts/${post.id}`} className="flex hover:bg-gray-100 sm:basis-80 h-90 justify-center px-6 sm:p-0 hover:opacity-90">
             <Card
                 image={post.imageURl? require(`../../assets/images/posts/${post.imageURl}`) : CardImage}
-                title={post.title}
-                content={`${post.body.substring(0, 100)}...`}
+                title={post.title.substring(0, 95)}
+                content={`${post.body.substring(0, 90)}...`}
                 >
                 <div className='flex items-center justify-between mt-6'>
                     <PostAuthor userId={post.userId} />

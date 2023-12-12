@@ -68,8 +68,7 @@ function Header() {
                           {currentPage === item.path && <span className='absolute top-8 rounded-full right-0 left-0 w-full h-0.5 bg-white'></span>}
                         </Link>
                         :
-                        <Dropdown className="py-1 px-2 hover:bg-gray-700 hover:bg-opacity-20 hover:text-white rounded" title={item.name} path={item.path} options={item.options} active={(currentPage === item.path)} />
-
+                        <Dropdown key={item.name} className="py-1 px-2 hover:bg-gray-700 hover:bg-opacity-20 hover:text-white rounded" title={item.name} path={item.path} options={item.options} active={(currentPage === item.path)} />
                     ))}
                   </div>
                 </div>
