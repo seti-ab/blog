@@ -9,7 +9,7 @@ import Dropdown from './Dropdown'
 const navItems = [
   { name: 'Home', path: '/' },
   { name: 'Posts', path: '/posts', dropdown: true, options: [{ title: "All Posts", path: "posts" }, { title: "Add New Post", path: "posts/add" }] },
-  { name: 'Users', path: '/users' },
+  { name: 'Categories', path: '/categories' },
   { name: 'About Us', path: '/about-us' },
 ]
 

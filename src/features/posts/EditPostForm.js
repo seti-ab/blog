@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePost, selectPostById, updatePost } from "./postSlice";
-import { selectAllusers } from "../users/usersSlice";
+import { selectAllCategories } from "../categories/categoriesSlice";
 import { useNavigate, useParams } from "react-router";
 
 const EditPost = () => {
@@ -9,10 +9,10 @@ const EditPost = () => {
     const navigate = useNavigate();
 
     const post = useSelector(state => selectPostById(state, Number(postId)))
-    const users = useSelector(selectAllusers);
+    const categories = useSelector(selectAllCategories);
 
     const dispatch = useDispatch();
-    const InitialFormState = { title: post?.title, body: post?.body, userId: post?.userId };
+    const InitialFormState = { title: post?.title, body: post?.body, categoryId: post?.categoryId };
     const [formData, setFormData] = useState(InitialFormState);
     const [requestStatus, setRequestStatus] = useState("idle");
 
@@ -29,8 +29,8 @@ const EditPost = () => {
     };
 
     const handleValidation = () => {
-        const { title, body, userId } = formData;
-        if ([title, body, userId].every(Boolean) && requestStatus === "idle") {
+        const { title, body, categoryId } = formData;
+        if ([title, body, categoryId].every(Boolean) && requestStatus === "idle") {
             return true;
         } else return false;
     };
@@ -58,7 +58,7 @@ const EditPost = () => {
             setRequestStatus("pending");
             dispatch(deletePost({ id: post.id })).unwrap();
             setFormData(InitialFormState);
-            navigate("/");
+            navigate("/posts");
         }
         catch {
             console.lof("Cannot delete this post")
@@ -71,7 +71,7 @@ const EditPost = () => {
 
     const handleCancelEdit = () => {
         setFormData(InitialFormState);
-        navigate("/");
+        navigate("/posts");
     }
     return (
         <form onSubmit={handleSubmit}>
@@ -98,25 +98,25 @@ const EditPost = () => {
 
                 <div className="sm:col-span-3">
                     <label
-                        htmlFor="userId"
+                        htmlFor="categoryId"
                         className="block text-sm font-medium leading-6 text-gray-900"
                     >
                         Auther
                     </label>
                     <div className="mt-2">
                         <select
-                            defaultValue={post?.userId}
+                            defaultValue={post?.categoryId}
                             onChange={handleChange}
-                            id="userId"
-                            name="userId"
-                            autoComplete="userId"
+                            id="categoryId"
+                            name="categoryId"
+                            autoComplete="categoryId"
                             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                         >
                             <option value=""></option>
-                            {users.map((user) => {
+                            {categories.map((category) => {
                                 return (
-                                    <option key={user.id} value={user.id}>
-                                        {user.name}
+                                    <option key={category.id} value={category.id}>
+                                        {category.name}
                                     </option>
                                 );
                             })}

@@ -101,8 +101,8 @@ const postSlice = createSlice({
             .addCase(addNewPost.fulfilled, (state, action) => {
                 action.payload.id = state.ids[state.ids.length - 1] + 1
 
-                action.payload.userId = Number(action.payload.userId)
-                action.payload.date = new Date().toISOString();
+                action.payload.categoryId = action.payload.categoryId;
+                action.payload.date = new Date();
                 action.payload.reactions = {
                     thumbsUp: false,
                     heart: false,
@@ -143,9 +143,9 @@ export const {
 export const getPostsStatus = (state) => state.posts.status;
 export const getPostsError = (state) => state.posts.error;
 
-export const selectPostsByUser = createSelector(
-    [selectAllPosts, (state, userId) => userId],
-    (posts, userId) => posts.filter(post => post.userId === userId)
+export const selectPostsByCategory = createSelector(
+    [selectAllPosts, (state, categoryId) => categoryId],
+    (posts, categoryId) => posts.filter(post => post.categoryId === categoryId)
 )
 
 export const { toggleReaction } = postSlice.actions;
