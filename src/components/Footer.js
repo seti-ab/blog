@@ -5,7 +5,7 @@ const Footer = () => {
     const footerItems = [
         { name: "Home", path: "/" },
         { name: "Posts", path: "/posts" },
-        { name: "Users", path: "/users" },
+        { name: "Categories", path: "/categories" },
         { name: "About Us", path: "/about-us" },
     ]
     return (

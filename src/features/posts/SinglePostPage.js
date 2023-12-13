@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { selectPostById } from './postSlice';
-import PostAuthor from './PostAuthor';
+import PostCategoryTag from './PostCategoryTag';
 import Timestamp from './Timestamp';
 import ReactionButtons from './ReactionButtons';
 import { Link, useParams } from 'react-router-dom';
@@ -19,17 +19,17 @@ const SinglePostPage = () => {
     }
 
     return (
-        <article className="md:px-8 px-6 py-4 flex">
-            <div className="mx-3">
+        <article className="md:px-8 px-6 py-4 flex w-full">
+            <div className="mx-3 w-full">
                 <h2 className="font-medium text-gray-900 text-2xl">{post.title}</h2>
                 <p className="mt-4 text-justify text-lg text-gray-900">
                     {post.body}
                 </p>
                 <div className='flex flex-col mt-16'>
-                    <PostAuthor userId={post.userId} />
+                    <PostCategoryTag categoryId={post.categoryId} />
                     <Timestamp date={post.date} />
                 </div>
-                <div className='flex sm:flex-row flex-col sm:justify-between items-center gap-y-6'>
+                <div className='flex sm:flex-row flex-col sm:justify-between gap-y-6 items-end'>
                     <div className='flex sm:w-fit w-[100%]'><ReactionButtons post={post} /></div>
                     <Link to={`/posts/edit/${post.id}`} className="sm:w-fit w-[100%]">
                         <div className='flex sm:w-fit w-[100%] bg-violet-950 h-9 items-center justify-center rounded gap-2 px-3 hover:opacity-90 hover:text-white'>

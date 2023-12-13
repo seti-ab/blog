@@ -1,5 +1,5 @@
 import React from 'react'
-import PostAuthor from "./PostAuthor";
+import PostCategoryTag from "./PostCategoryTag";
 import Timestamp from "./Timestamp";
 import ReactionButtons from "./ReactionButtons";
 import { Link } from 'react-router-dom';
@@ -18,7 +18,7 @@ const PostExcerpt = ({ postId }) => {
                 content={`${post.body.substring(0, 90)}...`}
                 >
                 <div className='flex items-center justify-between mt-6'>
-                    <PostAuthor userId={post.userId} />
+                    <PostCategoryTag categoryId={post.categoryId} />
                     <Timestamp date={post.date} />
                 </div>
                 <ReactionButtons post={post} />
