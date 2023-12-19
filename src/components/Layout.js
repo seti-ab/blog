@@ -8,7 +8,7 @@ const Layout = () => {
         <div className="bg-secondary">
             {location.pathname === "/" && < Hero />}
             <Header />
-            <main className="container mx-auto max-w-screen-xl pb-5 pt-28 min-h-[92vh]">
+            <main className="container mx-auto max-w-screen-xl pb-5 pt-28">
                 <Outlet />
             </main>
             <Footer />
