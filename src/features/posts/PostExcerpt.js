@@ -16,9 +16,9 @@ const PostExcerpt = ({ postId }) => {
                 image={post.imageURl ? require(`../../assets/images/posts/${post.imageURl}`) : CardImage}
                 title={post.title.substring(0, 95)}
                 content={`${post.body.substring(0, 90)}...`}
+                tag={post.categoryId}
             >
-                <div className='flex items-center justify-between mt-6'>
-                    <PostCategoryTag categoryId={post.categoryId} />
+                <div className='flex justify-end mt-4'>
                     <Timestamp date={post.date} />
                 </div>
                 <div onClick={e => e.preventDefault()}>

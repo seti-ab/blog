@@ -1,21 +1,23 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { selectAllCategories } from './categoriesSlice'
-import { Link } from 'react-router-dom';
+import Page from '../../components/Page';
+import PostCategoryTag from '../posts/PostCategoryTag';
 
 const CategoriesList = () => {
     const categories = useSelector(selectAllCategories);
     return (
-        <section>
-            <h2><b>Categories</b></h2>
-            <ul>
-                {categories.map(category => {
-                    return <li key={category.id}>
-                        <Link to={`/categories/${category.id}`}>{category.name}</Link>
-                    </li>
-                })}
-            </ul>
-        </section>
+        <Page title="Categories">
+            <div className='flex items-center justify-center'>
+                <ul className='grid grid-cols-3 gap-4 '>
+                    {categories.map(category => {
+                        return <li key={category.id}>
+                            <PostCategoryTag categoryId={category.id} />
+                        </li>
+                    })}
+                </ul>
+            </div>
+        </Page>
     )
 }
 

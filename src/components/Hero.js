@@ -1,8 +1,6 @@
 import Card from './Card'
 import ImageCard from './ImageCard'
-import heroImage from "../assets/images/hero-transparent.png"
-
-
+import HeroImage from "../assets/images/hero-transparent.png"
 export default function Hero() {
 
     return (
@@ -17,11 +15,11 @@ export default function Hero() {
                         <Card label="Featured Articles" className="!px-6 !py-8 md:basis-5/12 rounded-2xl shadow-xl"  >
                             <div>
                                 <p>Title</p>
-                                <p>Embark on a journey into the ever-evolving world of technology with [Blog Name], your one-stop destination for insightful tech news, expert analyses, and captivating stories that unveil the latest innovations and transforming trends shaping our digital landscape.</p>
+                                <p>Embark on a journey into the ever-evolving world of technology with Tech Wind, your one-stop destination for insightful tech news, expert analyses, and captivating stories that unveil the latest innovations and transforming trends shaping our digital landscape.</p>
 
                             </div>
                         </Card>
-                        <ImageCard imageSrc={heroImage} className="md:basis-7/12 !shadow-xl " />
+                        <ImageCard imageSrc={HeroImage} className="md:basis-7/12 !shadow-xl " />
                     </div>
                 </div>
             </div>

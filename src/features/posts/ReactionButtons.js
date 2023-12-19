@@ -11,7 +11,7 @@ const ReactionButtons = ({ post }) => {
     heart: <HeartIcon />,
   };
   return (
-    <div className="flex gap-6 justify-evenly mt-4 border-[1px] py-2 px-3 rounded w-[100%]">
+    <div className="flex gap-6 justify-between mt-4 py-2 px-3 rounded w-[100%]">
       {Object.entries(reactionEmojis).map(([name, emoji]) => (
         <button
           type="button"

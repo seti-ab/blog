@@ -1,9 +1,10 @@
 import React from 'react';
+import PostCategoryTag from '../features/posts/PostCategoryTag';
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-const Card = ({ className, image, title, content, children, label }) => {
+const Card = ({ className, image, title, content, children, tag }) => {
     return (
 
         <div className={classNames("rounded-xl overflow-hidden w-full h-full bg-white", className)}>
@@ -15,8 +16,8 @@ const Card = ({ className, image, title, content, children, label }) => {
                 </p>}
                 {children}
             </div>
-            <div className="pt-4 pb-2 pl-6">
-                {label && <span className="inline-block bg-gray-200 rounded-full py-2 px-5 text-sm font-semibold text-gray-700 mr-2 mb-2">{label}</span>}
+            <div className="pt-4 pb-5 text-center">
+                <PostCategoryTag categoryId={tag}/>
             </div>
         </div>
     )
