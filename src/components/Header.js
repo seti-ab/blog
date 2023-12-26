@@ -1,10 +1,11 @@
 
 
-import { Fragment, useEffect, useState } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { useEffect, useState } from 'react'
+import { Disclosure } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, useLocation } from 'react-router-dom'
 import Dropdown from './Dropdown'
+import Logo from "../assets/images/logo.png";
 
 const navItems = [
   { name: 'Home', path: '/' },
@@ -47,10 +48,10 @@ function Header() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
+                    src={Logo}
+                    alt="tech Wind"
                   />
-                  <h1 className='ml-2 font-bold text-gray-300 text-xl'>Blog Name</h1>
+                  <h1 className='ml-2 font-bold text-gray-300 text-xl'>Tech Wind</h1>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

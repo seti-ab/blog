@@ -5,6 +5,7 @@ import { selectCategoryById } from './categoriesSlice';
 import { selectPostsByCategory } from '../posts/postSlice';
 
 import { Link } from 'react-router-dom';
+import Page from '../../components/Page';
 
 const CategoriesPost = () => {
     const { categoryId } = useParams();
@@ -13,18 +14,19 @@ const CategoriesPost = () => {
     const categoryPosts = useSelector(state => selectPostsByCategory(state, categoryId));
 
     return (
-        <section>
-            <h2>{category?.name}</h2>
-            <ol>
-                {categoryPosts.map(post => {
-                    return (
-                        <li key={post.id}>
-                            <Link to={`/posts/${post.id}`}>{post.title}</Link>
-                        </li>
-                    )
-                })}
-            </ol>
-        </section>
+        <Page title={`${category?.name} Posts`}>
+            <div className='mx-auto w-fit'>
+                <ol className='list-decimal flex flex-col gap-4 marker:text-violet-800 marker:font-bold'>
+                    {categoryPosts.map(post => {
+                        return (
+                            <li key={post.id} className='hover:text-violet-900 text-lg'>
+                                <Link to={`/posts/${post.id}`}>{post.title}</Link>
+                            </li>
+                        )
+                    })}
+                </ol>
+            </div>
+        </Page>
     )
 }
 
