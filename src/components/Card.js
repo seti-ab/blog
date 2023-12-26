@@ -16,9 +16,10 @@ const Card = ({ className, image, title, content, children, tag }) => {
                 </p>}
                 {children}
             </div>
-            <div className="pt-4 pb-5 text-center">
-                <PostCategoryTag categoryId={tag}/>
-            </div>
+            {tag && <div className="pt-4 pb-5 ml-6">
+                <PostCategoryTag categoryId={tag} />
+            </div>}
+
         </div>
     )
 }
