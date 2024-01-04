@@ -1,14 +1,12 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Counter from './features/counter/Counter';
-import AddPostForm from './features/posts/AddPostForm';
 import PostsList from './features/posts/PostsList';
 import Layout from './components/Layout';
-import SinglePostPage from './features/posts/SinglePostPage';
+import SinglePostPage from './pages/SinglePostPage';
 import EditPost from './features/posts/EditPostForm';
 import CategoriesList from './features/categories/CategoriesList';
 import CategoriesPage from './features/categories/CategoriesPage';
-import AddPostPage from './features/posts/AddPostPage';
-import HomePage from './features/posts/HomePage';
+import AddPostPage from './pages/AddPostPage';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (

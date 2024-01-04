@@ -13,7 +13,7 @@ const PostExcerpt = ({ postId }) => {
     return (
         <Link to={`/posts/${post.id}`} className="flex hover:bg-gray-100 sm:basis-80 h-90 justify-center px-6 sm:p-0 hover:opacity-90">
             <Card
-                image={post.imageURl ? require(`../../assets/images/posts/${post.imageURl}`) : CardImage}
+                image={post.categoryId ? require(`../../assets/images/posts/${post.categoryId}.jpg`) : CardImage}
                 title={post.title.substring(0, 95)}
                 content={`${post.body.substring(0, 90)}...`}
                 tag={post.categoryId}

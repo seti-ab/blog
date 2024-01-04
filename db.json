@@ -12,7 +12,6 @@
       "title": "The Rise of Artificial Intelligence: Shaping our Future",
       "body": "Artificial intelligence (AI) is another rapidly developing technology that is having a profound impact on our world. AI is being used to develop self-driving cars, diagnose diseases more accurately, and create more personalized marketing experiences.\nIn the future, AI is likely to play an even more central role in our lives. AI-powered systems could manage our homes, provide us with personalized education and healthcare, and even help us find love.",
       "date": "2023-12-15T04:34:46.290Z",
-      "imageURl": "artificial-intelligence.jpg",
       "categoryId": "artificial-intelligence"
     },
     {
@@ -20,7 +19,7 @@
       "title": "The Internet of Things: Connecting Everything",
       "body": "The Internet of Things (IoT) is a network of interconnected devices that can collect and share data. IoT devices are already being used in a variety of ways, from smart homes to wearable fitness trackers.\nIn the future, IoT is likely to become even more ubiquitous, as billions of devices connect to the internet. IoT could revolutionize the way we live, work, and play.",
       "date": "2023-02-06T21:38:12.523Z",
-      "categoryId": "networking-and-security"
+      "categoryId": "wireless-and-mobile"
     },
     {
       "id": 4,

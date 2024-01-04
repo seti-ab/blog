@@ -1,6 +1,6 @@
 import Card from './Card'
 import ImageCard from './ImageCard'
-import HeroImage from "../assets/images/hero-transparent.png"
+import HeroImage from "../assets/images/hero.jpeg"
 export default function Hero() {
 
     return (
