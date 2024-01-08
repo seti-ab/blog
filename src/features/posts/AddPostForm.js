@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewPost } from "./postSlice";
-import { selectAllCategories } from "../categories/categoriesSlice";
+import { selectAllusers } from "../users/usersSlice";
 import { useNavigate } from "react-router";
 
 const AddPostForm = () => {
-  const InitialFormState = { title: "", body: "", categoryId: "" };
+  const InitialFormState = { title: "", body: "", userId: "" };
   const [formData, setFormData] = useState(InitialFormState);
   const [addRequestStatus, setAddRequestStatus] = useState("idle");
   const dispatch = useDispatch();
-  const categories = useSelector(selectAllCategories);
+  const users = useSelector(selectAllusers);
   const navigate = useNavigate();
   const handleChange = (e) => {
     let temp = { ...formData };
@@ -18,8 +18,8 @@ const AddPostForm = () => {
   };
 
   const handleValidation = () => {
-    const { title, body, categoryId } = formData;
-    if ([title, body, categoryId].every(Boolean) && addRequestStatus === "idle") {
+    const { title, body, userId } = formData;
+    if ([title, body, userId].every(Boolean) && addRequestStatus === "idle") {
       return true;
     } else return false;
   };
@@ -30,11 +30,10 @@ const AddPostForm = () => {
     if (formIsValid) {
       try {
         setAddRequestStatus("pending");
-        const { title, body, categoryId } = formData;
-        dispatch(addNewPost({ title, body, categoryId, date: new Date() })).unwrap();
+        const { title, body, userId } = formData;
+        dispatch(addNewPost({ title, body, userId })).unwrap();
         setFormData(InitialFormState);
-        navigate("/posts");
-        window.location.reload(true);
+        navigate("/");
       } catch (err) {
         console.log("Faild to save post", err)
       } finally {
@@ -46,7 +45,7 @@ const AddPostForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full">
+    <form onSubmit={handleSubmit}>
       <div className="space-y-4">
         <div className="sm:col-span-3">
           <label
@@ -63,19 +62,44 @@ const AddPostForm = () => {
               name="title"
               id="title"
               autoComplete="given-name"
-              className="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
           </div>
         </div>
 
-
+        <div className="sm:col-span-3">
+          <label
+            htmlFor="userId"
+            className="block text-sm font-medium leading-6 text-gray-900"
+          >
+            Auther
+          </label>
+          <div className="mt-2">
+            <select
+              onChange={handleChange}
+              id="userId"
+              name="userId"
+              autoComplete="userId"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+            >
+              <option value=""></option>
+              {users.map((user) => {
+                return (
+                  <option key={user.id} value={user.id}>
+                    {user.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </div>
 
         <div className="col-span-full">
           <label
             htmlFor="body"
             className="block text-sm font-medium leading-6 text-gray-900"
           >
-            Content
+            body
           </label>
           <div className="mt-2">
             <textarea
@@ -84,35 +108,8 @@ const AddPostForm = () => {
               id="body"
               name="body"
               rows={3}
-              className="block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             />
-          </div>
-        </div>
-
-        <div className="col-span-full">
-          <label
-            htmlFor="categoryId"
-            className="block text-sm font-medium leading-6 text-gray-900"
-          >
-            Category
-          </label>
-          <div className="mt-2">
-            <select
-              onChange={handleChange}
-              id="categoryId"
-              name="categoryId"
-              autoComplete="categoryId"
-              className="block w-full rounded-md border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-            >
-              <option value="">Select Category...</option>
-              {categories.map((category) => {
-                return (
-                  <option key={category.id} value={category.id}>
-                    {category.name}
-                  </option>
-                );
-              })}
-            </select>
           </div>
         </div>
       </div>

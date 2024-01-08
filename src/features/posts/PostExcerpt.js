@@ -1,30 +1,26 @@
-import React from 'react';
-import Timestamp from "./Timestamp";
+import React from 'react'
+import PostAuthor from "./PostAuthor";
+import PostTimestamp from "./PostTimestamp";
 import ReactionButtons from "./ReactionButtons";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectPostById } from './postSlice';
-import Card from '../../components/Card';
-import CardImage from "../../assets/images/placeholder.jpeg";
 
 const PostExcerpt = ({ postId }) => {
     const post = useSelector(state => selectPostById(state, postId));
     return (
-        <Link to={`/posts/${post.id}`} className="flex hover:bg-gray-100 sm:basis-80 h-90 justify-center px-6 sm:p-0 hover:opacity-90">
-            <Card
-                image={post.categoryId ? require(`../../assets/images/posts/${post.categoryId}.jpg`) : CardImage}
-                title={post.title.substring(0, 95)}
-                content={`${post.body.substring(0, 90)}...`}
-                tag={post.categoryId}
-            >
-                <div className='flex justify-end mt-4'>
-                    <Timestamp date={post.date} />
-                </div>
-                <div onClick={e => e.preventDefault()}>
-                    <ReactionButtons post={post} />
-                </div>
-            </Card>
-        </Link>
+        <article className="py-4 flex">
+            <div className="ml-3">
+                <p className="text-sm font-medium text-gray-900">{post.title}</p>
+                <p className="text-sm text-gray-500">
+                    {post.body.substring(0, 100)}
+                </p>
+                <PostAuthor userId={post.userId} />
+                <PostTimestamp timestamp={post.date} />
+                <ReactionButtons post={post} />
+                <Link to={`posts/${post.id}`}>View Post</Link>
+            </div>
+        </article>
     )
 }
 

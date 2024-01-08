@@ -159,9 +159,6 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
-      primary:"#240049",
-      secondary:"#f7f7ff",
-      dark:"#170439"
     }),
     columns: {
       auto: 'auto',
