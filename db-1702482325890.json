@@ -5,12 +5,7 @@
       "title": " The Future of Virtual Reality: Immersive Experiences and Beyond",
       "body": "Virtual reality (VR) is a rapidly evolving technology that has the potential to revolutionize the way we interact with the world around us. From immersive gaming experiences to virtual training simulations, VR is already being used in a variety of ways, and its potential applications are only just beginning to be explored.\nIn the future, VR is likely to become even more immersive and realistic, as new technologies like haptic feedback and eye-tracking allow for a more natural and engaging experience. VR could also play a more significant role in education, healthcare, and social interaction.",
       "date": "2022-07-18T16:02:31.089Z",
-      "categoryId": "virtual-reality",
-      "reactions": {
-        "thumbsUp": false,
-        "thumbsDown": false,
-        "heart": false
-      }
+      "categoryId": "virtual-reality"
     },
     {
       "id": 2,
@@ -18,73 +13,28 @@
       "body": "Artificial intelligence (AI) is another rapidly developing technology that is having a profound impact on our world. AI is being used to develop self-driving cars, diagnose diseases more accurately, and create more personalized marketing experiences.\nIn the future, AI is likely to play an even more central role in our lives. AI-powered systems could manage our homes, provide us with personalized education and healthcare, and even help us find love.",
       "date": "2023-12-15T04:34:46.290Z",
       "imageURl": "artificial-intelligence.jpg",
-      "categoryId": "artificial-intelligence",
-      "reactions": {
-        "thumbsUp": false,
-        "thumbsDown": false,
-        "heart": false
-      }
+      "categoryId": "artificial-intelligence"
     },
     {
       "id": 3,
       "title": "The Internet of Things: Connecting Everything",
       "body": "The Internet of Things (IoT) is a network of interconnected devices that can collect and share data. IoT devices are already being used in a variety of ways, from smart homes to wearable fitness trackers.\nIn the future, IoT is likely to become even more ubiquitous, as billions of devices connect to the internet. IoT could revolutionize the way we live, work, and play.",
       "date": "2023-02-06T21:38:12.523Z",
-      "categoryId": "wireless-and-mobile",
-      "reactions": {
-        "thumbsUp": false,
-        "thumbsDown": false,
-        "heart": false
-      }
+      "categoryId": "networking-and-security"
     },
     {
       "id": 4,
       "title": "Cybersecurity: Protecting Our Digital Lives",
       "body": "As technology becomes more important in our lives, so too does the need for cybersecurity. Cyberattacks are becoming more sophisticated and costly, and it is important to take steps to protect ourselves from them.\nThere are a number of things that we can do to protect our cybersecurity, such as using strong passwords, being careful about what information we share online, and installing security software on our devices.",
       "date": "2022-10-01T18:54:31.433Z",
-      "categoryId": "networking-and-security",
-      "reactions": {
-        "thumbsUp": false,
-        "thumbsDown": false,
-        "heart": false
-      }
+      "categoryId": "networking-and-security"
     },
     {
       "id": 5,
       "title": "The Ethics of Technology: Balancing Progress and Humanity",
       "body": "As technology advances, it is important to consider the ethical implications of its use. Technology can have a profound impact on our lives, and it is important to ensure that it is used in a way that is fair, just, and beneficial to all.\nThere are a number of ethical challenges that we need to address, such as the use of AI in decision-making, the privacy of our data, and the potential for technology to exacerbate inequality.",
       "date": "2023-03-18T06:21:01.624Z",
-      "categoryId": "business-technology",
-      "reactions": {
-        "thumbsUp": false,
-        "thumbsDown": false,
-        "heart": false
-      }
-    },
-    {
-      "title": "Fossil Fuels: A Legacy and a Challenge",
-      "body": "For centuries, fossil fuels like coal, oil, and natural gas have been the workhorses of our energy sector. They powered the Industrial Revolution, fueled our transportation, and lit our homes. However, their reliance comes at a heavy cost. The burning of fossil fuels releases greenhouse gases, trapping heat in the atmosphere and contributing to climate change.\n\nThe effects of climate change are already being felt worldwide, from rising sea levels and extreme weather events to melting glaciers and biodiversity loss. We face a stark choice: continue on our current path and risk catastrophic consequences, or embrace a more sustainable energy future.",
-      "categoryId": "energy-and-sustainability",
-      "id": 6,
-      "reactions": {
-        "thumbsUp": false,
-        "thumbsDown": false,
-        "heart": false
-      },
-      "date": "2024-01-08T12:58:55.324Z"
-    },
-    {
-      "title": "The Wellness Revolution: Tech for the Body and Mind",
-      "body": "Technology is no longer just about entertainment; it's taking a front seat in our pursuit of well-being. Wearables track our every step, sleep patterns, and even heart rate, offering insights into our overall health. Meditation apps guide us through mindfulness exercises, while smart scales whisper nutritional advice. This data-driven approach to wellness opens doors for personalized prevention and early intervention, but we must remember that true well-being goes beyond gadgets; technology complements, not replaces, a healthy lifestyle.",
-      "categoryId": "consumer-technology",
-      "date": "2024-01-08T13:00:35.108Z",
-      "id": 7,
-      "reactions": {
-        "thumbsUp": false,
-        "thumbsDown": false,
-        "heart": false
-      }
-    
+      "categoryId": "business-technology"
     }
   ],
   "categories": [

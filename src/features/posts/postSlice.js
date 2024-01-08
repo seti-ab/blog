@@ -1,12 +1,11 @@
-import { createAsyncThunk, createSlice, createSelector, createEntityAdapter } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, createSelector, createEntityAdapter, current } from "@reduxjs/toolkit";
 import axios from "axios";
-import { sub } from "date-fns";
 
 
 const POSTS_URL = "http://localhost:8000/posts";
 
 const postsAdapter = createEntityAdapter({
-    sortComparer: (a, b) => b.date.localeCompare(a.date)
+    sortComparer: (a, b) => b.date.localeCompare(a.date),
 })
 
 const initialState = postsAdapter.getInitialState({
@@ -16,7 +15,7 @@ const initialState = postsAdapter.getInitialState({
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
     try {
-        const response = await axios.get(POSTS_URL)
+        const response = await axios.get(POSTS_URL);
         return [...response.data];
     } catch (err) {
         return err.message;
@@ -61,10 +60,13 @@ const postSlice = createSlice({
     name: "posts",
     initialState,
     reducers: {
-        addReaction(state, action) {
+        toggleReaction(state, action) {
             const { postId, reaction } = action.payload;
             const currentPost = state.entities[postId];
-            currentPost && currentPost.reactions[reaction]++;
+            if (currentPost) {
+                Object.keys(currentPost.reactions).forEach(reaction => currentPost.reactions[reaction] = false)
+                currentPost.reactions[reaction] = !currentPost.reactions[reaction];
+            }
         },
     }, extraReducers(builder) {
         builder
@@ -73,17 +75,14 @@ const postSlice = createSlice({
             })
             .addCase(fetchPosts.fulfilled, (state, action) => {
                 state.status = "succeeded";
-                let min = "1";
                 let loadedPosts = [];
                 if (action.payload !== "Network Error") {
                     loadedPosts = action.payload.map(post => {
-                        post.date = sub(new Date(), { minutes: min++ }).toISOString();
+                        post.date = new Date(post.date).toISOString();
                         post.reactions = {
-                            thumbsUp: 0,
-                            wow: 0,
-                            heart: 0,
-                            rocket: 0,
-                            coffee: 0
+                            thumbsUp: false,
+                            thumbsDown: false,
+                            heart: false,
 
                         };
                         return post;
@@ -102,16 +101,14 @@ const postSlice = createSlice({
             .addCase(addNewPost.fulfilled, (state, action) => {
                 action.payload.id = state.ids[state.ids.length - 1] + 1
 
-                action.payload.userId = Number(action.payload.userId)
-                action.payload.date = new Date().toISOString();
+                action.payload.categoryId = action.payload.categoryId;
+                action.payload.date = new Date();
                 action.payload.reactions = {
-                    thumbsUp: 0,
-                    wow: 0,
-                    heart: 0,
-                    rocket: 0,
-                    coffee: 0
+                    thumbsUp: false,
+                    heart: false,
+                    thumbsDown: false,
                 }
-                console.log(action.payload)
+                console.log(action.payload);
                 postsAdapter.addOne(state, action.payload)
             })
             .addCase(updatePost.fulfilled, (state, action) => {
@@ -120,7 +117,6 @@ const postSlice = createSlice({
                     console.log(action.payload);
                     return;
                 }
-                action.payload.date = new Date().toISOString();
                 postsAdapter.upsertOne(state, action.payload);
 
             })
@@ -130,7 +126,6 @@ const postSlice = createSlice({
                     console.log(action.payload);
                     return;
                 }
-                action.payload.date = new Date().toISOString();
                 postsAdapter.removeOne(state, action.payload.id);
             })
 
@@ -146,11 +141,11 @@ export const {
 export const getPostsStatus = (state) => state.posts.status;
 export const getPostsError = (state) => state.posts.error;
 
-export const selectPostsByUser = createSelector(
-    [selectAllPosts, (state, userId) => userId],
-    (posts, userId) => posts.filter(post => post.userId === userId)
+export const selectPostsByCategory = createSelector(
+    [selectAllPosts, (state, categoryId) => categoryId],
+    (posts, categoryId) => posts.filter(post => post.categoryId === categoryId)
 )
 
-export const { addReaction } = postSlice.actions;
+export const { toggleReaction } = postSlice.actions;
 
 export default postSlice.reducer;
