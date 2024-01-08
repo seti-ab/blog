@@ -6,10 +6,13 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link, useLocation } from 'react-router-dom'
 import Dropdown from './Dropdown'
 import Logo from "../assets/images/logo.png";
+import { PlusIcon, ListBulletIcon } from "@heroicons/react/20/solid";
 
 const navItems = [
   { name: 'Home', path: '/' },
-  { name: 'Posts', path: '/posts', dropdown: true, options: [{ title: "All Posts", path: "posts" }, { title: "Add New Post", path: "posts/add" }] },
+  { name: 'Posts', path: '/posts', dropdown: true,
+  options: [{ title: <div className='flex items-center gap-2'> <ListBulletIcon width={24} />All Posts</div>, path: "posts" },
+  { title: <div className='flex items-center gap-2'> <PlusIcon width={24} />Add New Post</div>, path: "posts/add" }] },
   { name: 'Categories', path: '/categories' },
   { name: 'About Us', path: '/about-us' },
 ]

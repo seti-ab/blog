@@ -117,7 +117,6 @@ const postSlice = createSlice({
                     console.log(action.payload);
                     return;
                 }
-                action.payload.date = new Date().toISOString();
                 postsAdapter.upsertOne(state, action.payload);
 
             })
@@ -127,7 +126,6 @@ const postSlice = createSlice({
                     console.log(action.payload);
                     return;
                 }
-                action.payload.date = new Date().toISOString();
                 postsAdapter.removeOne(state, action.payload.id);
             })
 

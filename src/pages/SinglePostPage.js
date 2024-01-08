@@ -22,6 +22,7 @@ const SinglePostPage = () => {
     return (
         <Page title={post.title}>
             <article>
+                <img src={require(`../assets/images/posts/${post.categoryId}.jpg`)} className={"w-full px-3 rounded object-cover mx-auto h-96"}/>
                 <div className="mx-3">
                     <h2 className="font-medium text-gray-900 text-2xl"></h2>
                     <p className="mt-4 text-justify text-lg text-gray-900">

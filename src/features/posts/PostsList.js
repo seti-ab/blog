@@ -18,6 +18,7 @@ const PostsList = () => {
   } else if (status === "failed") {
     content = <p>{error}</p>
   }
+  console.log("test",content)
   return (
     <section className="flex justify-center flex-wrap gap-6">
       {content}
