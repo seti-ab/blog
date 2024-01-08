@@ -27,7 +27,8 @@ const HomePage = () => {
   }
 
   return (
-    <div className='mb-16 flex flex-col gap-y-10'>
+    <div className='mb-16 flex flex-col gap-y-16'>
+      <h1 className='max-w-7xl px-2 sm:px-6 lg:px-8 font-bold text-3xl mt-14'>What's New?</h1>
       {content}
     </div>
   );
