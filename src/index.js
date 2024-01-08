@@ -4,11 +4,11 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
-import { fetchCategories } from './features/categories/categoriesSlice';
+import { fetchUsers } from './features/users/usersSlice';
 import { fetchPosts } from './features/posts/postSlice';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-store.dispatch(fetchCategories());
+store.dispatch(fetchUsers());
 store.dispatch(fetchPosts());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
