@@ -34,6 +34,7 @@ const AddPostForm = () => {
         dispatch(addNewPost({ title, body, categoryId, date: new Date() })).unwrap();
         setFormData(InitialFormState);
         navigate("/posts");
+        window.location.reload(true);
       } catch (err) {
         console.log("Faild to save post", err)
       } finally {

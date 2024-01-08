@@ -1,5 +1,4 @@
-import React from 'react'
-import PostCategoryTag from "./PostCategoryTag";
+import React from 'react';
 import Timestamp from "./Timestamp";
 import ReactionButtons from "./ReactionButtons";
 import { Link } from 'react-router-dom';
