@@ -18,9 +18,9 @@ const CategoriesPost = () => {
         autoplay: true,
         animationData: animationData,
         rendererSettings: {
-          preserveAspectRatio: "xMidYMid slice"
+            preserveAspectRatio: "xMidYMid slice"
         }
-      };
+    };
     return (
         <Page title={`${category?.name} Posts`}>
             <div className='mx-auto w-fit'>
@@ -35,11 +35,13 @@ const CategoriesPost = () => {
                         :
                         <div>
                             <p className='text-lg'>We're brewing up some amazing content for this category, check back later for the first sip!</p>
-                            <Lottie
-                                options={defaultOptions}
-                                height={400}
-                                width={400}
-                            />
+                            <div className="max-w-[600px] mx-auto px-3">
+                                <Lottie
+                                    options={defaultOptions}
+                                    height="100%"
+                                    width="100%"
+                                />
+                            </div>
                         </div>
                     }
                 </ol>
