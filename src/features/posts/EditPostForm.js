@@ -4,7 +4,7 @@ import { deletePost, selectPostById, updatePost } from "./postSlice";
 import { selectAllCategories } from "../categories/categoriesSlice";
 import { useNavigate, useParams } from "react-router";
 
-const EditPost = () => {
+const EditPostForm = () => {
     const { postId } = useParams();
     const navigate = useNavigate();
 
@@ -74,7 +74,7 @@ const EditPost = () => {
         setFormData(InitialFormState);
         navigate("/posts");
     }
-    
+    console.log("formdata", formData.categoryId)
     return (
         <form onSubmit={handleSubmit}>
             <div className="space-y-4">
@@ -175,4 +175,4 @@ const EditPost = () => {
     );
 };
 
-export default EditPost;
+export default EditPostForm;

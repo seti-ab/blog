@@ -10,7 +10,7 @@ import CardImage from "../../assets/images/placeholder.jpeg";
 const PostExcerpt = ({ postId }) => {
     const post = useSelector(state => selectPostById(state, postId));
     return (
-        <Link to={`/posts/${post.id}`} className="flex hover:bg-gray-100 sm:basis-80 h-90 justify-center px-6 sm:p-0 hover:opacity-90">
+        <Link to={`/posts/${post.id}`} className="flex sm:basis-80 h-90 justify-center px-6 sm:p-0 hover:opacity-90">
             <Card
                 image={post.categoryId ? require(`../../assets/images/posts/${post.categoryId}.jpg`) : CardImage}
                 title={post.title.substring(0, 95)}

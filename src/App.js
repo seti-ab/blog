@@ -1,13 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
-import PostsList from './features/posts/PostsList';
 import Layout from './components/Layout';
 import SinglePostPage from './pages/SinglePostPage';
-import EditPost from './features/posts/EditPostForm';
 import CategoriesList from './features/categories/CategoriesList';
 import CategoriesPage from './features/categories/CategoriesPage';
 import AddPostPage from './pages/AddPostPage';
 import HomePage from './pages/HomePage';
 import NotFound from './pages/404';
+import PostsPage from './pages/PostsPage';
+import EditPostPage from './pages/EditPostPage';
 
 function App() {
   return (
@@ -17,10 +17,10 @@ function App() {
         <Route index element={<HomePage />} />
 
         <Route path="posts">
-          <Route index element={<PostsList />} />
+          <Route index element={<PostsPage />} />
           <Route path="add" element={<AddPostPage />} />
           <Route path=":postId" element={<SinglePostPage />} />
-          <Route path="edit/:postId" element={<EditPost />} />
+          <Route path="edit/:postId" element={<EditPostPage />} />
         </Route>
 
         <Route path="categories">
