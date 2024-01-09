@@ -15,7 +15,7 @@ const EditPost = () => {
     const InitialFormState = { title: post?.title, body: post?.body, categoryId: post?.categoryId };
     const [formData, setFormData] = useState(InitialFormState);
     const [requestStatus, setRequestStatus] = useState("idle");
-    console.log("params", postId)
+
     if (!post) {
         return <section>
             <h2>Post Not Found</h2>
@@ -74,7 +74,7 @@ const EditPost = () => {
         setFormData(InitialFormState);
         navigate("/posts");
     }
-    console.log("formdata", formData.categoryId)
+    
     return (
         <form onSubmit={handleSubmit}>
             <div className="space-y-4">

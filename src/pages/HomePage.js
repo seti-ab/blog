@@ -2,6 +2,7 @@ import React from 'react'
 import PostDemo from '../features/posts/PostDemo';
 import { useSelector } from 'react-redux';
 import { getPostsError, getPostsStatus, selectPostIds } from '../features/posts/postSlice';
+import Loading from '../components/Loading';
 
 const HomePage = () => {
   const sortedPostsIds = useSelector(selectPostIds);
@@ -10,7 +11,7 @@ const HomePage = () => {
 
   let content;
   if (status === "loading") {
-    content = <p>"Loading..."</p>
+    content = <Loading />
   }
 
   else if (status === "succeeded") {

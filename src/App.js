@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import PostsList from './features/posts/PostsList';
 import Layout from './components/Layout';
 import SinglePostPage from './pages/SinglePostPage';
@@ -7,6 +7,7 @@ import CategoriesList from './features/categories/CategoriesList';
 import CategoriesPage from './features/categories/CategoriesPage';
 import AddPostPage from './pages/AddPostPage';
 import HomePage from './pages/HomePage';
+import NotFound from './pages/404';
 
 function App() {
   return (
@@ -26,9 +27,8 @@ function App() {
           <Route index element={<CategoriesList />} />
           <Route path=':categoryId' element={<CategoriesPage />} />
         </Route>
-
-        {/* be replaced with a 404 later */}
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="404" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
 
