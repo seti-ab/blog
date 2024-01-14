@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/blog/static/css/main.2ff043f7.css",
-    "main.js": "/blog/static/js/main.6b9c89fc.js",
-    "static/media/business-technology.jpg": "/blog/static/media/business-technology.dccaa70437d4597d5488.jpg",
-    "static/media/hero.jpeg": "/blog/static/media/hero.4a06c781d7baf8789387.jpeg",
-    "static/media/networking-and-security.jpg": "/blog/static/media/networking-and-security.e5c01da1c576d0c7c92e.jpg",
-    "static/media/undefined.jpg": "/blog/static/media/undefined.ad8a1f9e8f4f40590602.jpg",
-    "static/media/energy-and-sustainability.jpg": "/blog/static/media/energy-and-sustainability.0096f49c9646aae185ff.jpg",
-    "static/media/healthcare.jpg": "/blog/static/media/healthcare.8e01f888f7e76ff1a3eb.jpg",
-    "static/media/artificial-intelligence.jpg": "/blog/static/media/artificial-intelligence.d50dffdf1887dce5c0a3.jpg",
-    "static/media/wireless-and-mobile.jpg": "/blog/static/media/wireless-and-mobile.7bc9e9023adfa6710faa.jpg",
-    "static/media/virtual-reality.jpg": "/blog/static/media/virtual-reality.4420fdebe2d5177ca94a.jpg",
-    "static/media/education.jpg": "/blog/static/media/education.6bb68eb29a666217c5e8.jpg",
-    "static/media/consumer-technology.jpg": "/blog/static/media/consumer-technology.abdc107e63f34f03d8f6.jpg",
-    "static/media/logo.png": "/blog/static/media/logo.1d6a6aad80d2dc0c93a5.png",
-    "index.html": "/blog/index.html",
-    "main.2ff043f7.css.map": "/blog/static/css/main.2ff043f7.css.map",
-    "main.6b9c89fc.js.map": "/blog/static/js/main.6b9c89fc.js.map"
+    "main.css": "/static/css/main.2ff043f7.css",
+    "main.js": "/static/js/main.d171f5b9.js",
+    "static/media/business-technology.jpg": "/static/media/business-technology.dccaa70437d4597d5488.jpg",
+    "static/media/hero.jpeg": "/static/media/hero.4a06c781d7baf8789387.jpeg",
+    "static/media/networking-and-security.jpg": "/static/media/networking-and-security.e5c01da1c576d0c7c92e.jpg",
+    "static/media/undefined.jpg": "/static/media/undefined.ad8a1f9e8f4f40590602.jpg",
+    "static/media/energy-and-sustainability.jpg": "/static/media/energy-and-sustainability.0096f49c9646aae185ff.jpg",
+    "static/media/healthcare.jpg": "/static/media/healthcare.8e01f888f7e76ff1a3eb.jpg",
+    "static/media/artificial-intelligence.jpg": "/static/media/artificial-intelligence.d50dffdf1887dce5c0a3.jpg",
+    "static/media/wireless-and-mobile.jpg": "/static/media/wireless-and-mobile.7bc9e9023adfa6710faa.jpg",
+    "static/media/virtual-reality.jpg": "/static/media/virtual-reality.4420fdebe2d5177ca94a.jpg",
+    "static/media/education.jpg": "/static/media/education.6bb68eb29a666217c5e8.jpg",
+    "static/media/consumer-technology.jpg": "/static/media/consumer-technology.abdc107e63f34f03d8f6.jpg",
+    "static/media/logo.png": "/static/media/logo.1d6a6aad80d2dc0c93a5.png",
+    "index.html": "/index.html",
+    "main.2ff043f7.css.map": "/static/css/main.2ff043f7.css.map",
+    "main.d171f5b9.js.map": "/static/js/main.d171f5b9.js.map"
   },
   "entrypoints": [
     "static/css/main.2ff043f7.css",
-    "static/js/main.6b9c89fc.js"
+    "static/js/main.d171f5b9.js"
   ]
 }
