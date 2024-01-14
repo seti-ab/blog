@@ -7,7 +7,7 @@ function classNames(...classes) {
 const Card = ({ className, image, title, content, children, tag }) => {
     return (
 
-        <div className={classNames("rounded-xl overflow-hidden w-full h-full bg-white", className)}>
+        <div className={classNames("rounded-lg overflow-hidden w-full h-full bg-white", className)}>
             {image && <img className="w-full h-48" src={image} alt={title} />}
             <div className='px-8 py-2'>
                 {title && <h3 className="font-bold text-xl my-2 min-h-[84px]">{title}</h3>}
