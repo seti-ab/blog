@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice, createSelector, createEntityAdapter, current } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, createSelector, createEntityAdapter } from "@reduxjs/toolkit";
 import axios from "axios";
 
 
@@ -14,11 +14,12 @@ const initialState = postsAdapter.getInitialState({
 });
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
+    const staticData = await import('../../db.json');
     try {
         const response = await axios.get(POSTS_URL);
         return [...response.data];
     } catch (err) {
-        return [];
+        return staticData.posts;
     }
 })
 
@@ -101,7 +102,6 @@ const postSlice = createSlice({
             .addCase(addNewPost.fulfilled, (state, action) => {
                 action.payload.id = state.ids[state.ids.length - 1] + 1
 
-                action.payload.categoryId = action.payload.categoryId;
                 action.payload.date = new Date();
                 action.payload.reactions = {
                     thumbsUp: false,

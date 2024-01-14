@@ -38,7 +38,9 @@ const CategoriesPost = () => {
                     })
                         :
                         <div>
-                            <p className='text-lg'>We're brewing up some amazing content for this category, check back later for the first sip!</p>
+                            <p className='text-lg'>
+                                We're brewing up some amazing content for this category, check back later for the first sip!
+                            </p>
                             <div className="max-w-[600px] mx-auto px-3">
                                 <Lottie
                                     options={defaultOptions}

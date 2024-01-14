@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import Layout from './components/Layout';
 import SinglePostPage from './pages/SinglePostPage';
 import CategoriesList from './features/categories/CategoriesList';
@@ -16,6 +16,7 @@ function App() {
       <Route path="/" element={<Layout />}>
 
         <Route index element={<HomePage />} />
+        <Route path="/blog" element={<Navigate to="/" />} />
 
         <Route path="posts">
           <Route index element={<PostsPage />} />
@@ -28,7 +29,7 @@ function App() {
           <Route index element={<CategoriesList />} />
           <Route path=':categoryId' element={<CategoriesPage />} />
         </Route>
-        <Route path="about-me" element={<AboutMe/>}/>
+        <Route path="about-me" element={<AboutMe />} />
         <Route path="404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Route>

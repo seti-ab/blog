@@ -10,9 +10,11 @@ import { PlusIcon, ListBulletIcon } from "@heroicons/react/20/solid";
 
 const navItems = [
   { name: 'Home', path: '/' },
-  { name: 'Posts', path: '/posts', dropdown: true,
-  options: [{ title: <div className='flex items-center gap-2'> <ListBulletIcon width={24} />All Posts</div>, path: "posts" },
-  { title: <div className='flex items-center gap-2'> <PlusIcon width={24} />Add New Post</div>, path: "posts/add" }] },
+  {
+    name: 'Posts', path: '/posts', dropdown: true,
+    options: [{ title: <div className='flex items-center gap-2'> <ListBulletIcon width={24} />All Posts</div>, path: "posts" },
+    { title: <div className='flex items-center gap-2'> <PlusIcon width={24} />Add New Post</div>, path: "posts/add" }]
+  },
   { name: 'Categories', path: '/categories' },
   { name: 'About Me', path: '/about-me' },
 ]
@@ -30,14 +32,17 @@ function Header() {
   }, [location])
 
   return (
-    <Disclosure as="nav" className={classNames("w-full absolute top-0 left-1/2 transform -translate-x-1/2 px-5", currentPage === "/" ? "bg-transparent" : "bg-violet-950")}>
+    <Disclosure as="nav"
+      className={classNames("w-full absolute top-0 left-1/2 transform -translate-x-1/2 px-5",
+        currentPage === "/" ? "bg-transparent" : "bg-violet-950")}>
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl mt-6 px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between border-b-2 border-violet-900 pb-6">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button
+                  className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (

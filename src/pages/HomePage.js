@@ -27,7 +27,11 @@ const HomePage = () => {
           <p className='text-xl mb-6 '>Got the scoop on the next big tech breakthrough?</p>
           <p className="mb-6">Don't wait for release date! Drop your exclusive here and break the news first.</p>
 
-          <Link to="posts/add" className="bg-transparent hover:bg-primary text-primary font-semibold hover:text-white py-2 px-4 border border-primary hover:border-transparent rounded">Add New Post</Link>
+          <Link
+            to="posts/add"
+            className="bg-transparent hover:bg-primary text-primary font-semibold hover:text-white py-2 px-4 border border-primary hover:border-transparent rounded">
+            Add New Post
+          </Link>
         </div>
       }
       {randomPosts?.map((postId, index) => {
