@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import NotFound from './pages/404';
 import PostsPage from './pages/PostsPage';
 import EditPostPage from './pages/EditPostPage';
+import AboutMe from './pages/AboutMe';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route index element={<CategoriesList />} />
           <Route path=':categoryId' element={<CategoriesPage />} />
         </Route>
+        <Route path="about-us" element={<AboutMe/>}/>
         <Route path="404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -18,7 +18,7 @@ export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
         const response = await axios.get(POSTS_URL);
         return [...response.data];
     } catch (err) {
-        return err.message;
+        return [];
     }
 })
 

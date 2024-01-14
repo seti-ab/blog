@@ -23,8 +23,12 @@ const CategoriesPost = () => {
     };
     return (
         <Page title={`${category?.name} Posts`}>
-            <div className='mx-auto w-fit'>
-                <ol className='list-decimal flex flex-col gap-4 marker:text-violet-800 marker:font-bold pb-5'>
+            <p className='text-lg mb-12 px-4'>
+                {category?.description}
+            </p>
+            <div className='w-fit'>
+                <h3 className='text-xl mb-4 px-6'>Dive into {category?.name}:</h3>
+                <ol className='list-decimal flex flex-col gap-4 marker:text-violet-800 marker:font-bold pb-5 px-10'>
                     {categoryPosts.length > 0 ? categoryPosts.map(post => {
                         return (
                             <li key={post.id} className='hover:text-violet-900 text-lg'>

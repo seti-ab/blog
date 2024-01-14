@@ -11,7 +11,11 @@ export const fetchCategories = createAsyncThunk("categories/fetchCategories", as
         return [...response.data]
     }
     catch (err) {
-        return err.message;
+        return [{
+            id: "latest-technology",
+            name: "Latest Technology",
+            description: "This is a placeholder"
+          }];
     }
 })
 const categorySlice = createSlice({
