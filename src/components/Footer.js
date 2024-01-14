@@ -6,7 +6,7 @@ const Footer = () => {
         { name: "Home", path: "/" },
         { name: "Posts", path: "/posts" },
         { name: "Categories", path: "/categories" },
-        { name: "About Us", path: "/about-us" },
+        { name: "About Me", path: "/about-me" },
     ]
     return (
         <footer className="bg-transparent">

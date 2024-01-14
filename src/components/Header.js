@@ -14,7 +14,7 @@ const navItems = [
   options: [{ title: <div className='flex items-center gap-2'> <ListBulletIcon width={24} />All Posts</div>, path: "posts" },
   { title: <div className='flex items-center gap-2'> <PlusIcon width={24} />Add New Post</div>, path: "posts/add" }] },
   { name: 'Categories', path: '/categories' },
-  { name: 'About Us', path: '/about-us' },
+  { name: 'About Me', path: '/about-me' },
 ]
 
 function classNames(...classes) {

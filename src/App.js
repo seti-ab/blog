@@ -28,7 +28,7 @@ function App() {
           <Route index element={<CategoriesList />} />
           <Route path=':categoryId' element={<CategoriesPage />} />
         </Route>
-        <Route path="about-us" element={<AboutMe/>}/>
+        <Route path="about-me" element={<AboutMe/>}/>
         <Route path="404" element={<NotFound />} />
         <Route path="*" element={<NotFound />} />
       </Route>

@@ -27,7 +27,7 @@ const CategoriesPost = () => {
                 {category?.description}
             </p>
             <div className='w-fit'>
-                <h3 className='text-xl mb-4 px-6'>Dive into {category?.name}:</h3>
+                <h3 className='text-xl mb-4 px-6 font-bold'>Dive into {category?.name}:</h3>
                 <ol className='list-decimal flex flex-col gap-4 marker:text-violet-800 marker:font-bold pb-5 px-10'>
                     {categoryPosts.length > 0 ? categoryPosts.map(post => {
                         return (
