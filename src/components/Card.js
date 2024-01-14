@@ -1,9 +1,9 @@
 import React from 'react';
 import PostCategoryTag from '../features/posts/PostCategoryTag';
+
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
-
 const Card = ({ className, image, title, content, children, tag }) => {
     return (
 

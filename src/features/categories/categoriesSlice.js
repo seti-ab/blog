@@ -6,16 +6,13 @@ const CATEGORIES_URL = "http://localhost:8000/categories";
 const initialState = []
 
 export const fetchCategories = createAsyncThunk("categories/fetchCategories", async () => {
+    const staticData = await import('../../db.json');
     try {
         const response = await axios.get(CATEGORIES_URL);
         return [...response.data]
     }
     catch (err) {
-        return [{
-            id: "latest-technology",
-            name: "Latest Technology",
-            description: "This is a placeholder"
-          }];
+        return staticData.categories;
     }
 })
 const categorySlice = createSlice({

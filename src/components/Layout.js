@@ -5,7 +5,7 @@ import Hero from "./Hero";
 
 const Layout = () => {
     const location = useLocation();
-    
+
     return (
         <div className="bg-secondary">
             {location.pathname === '/' && < Hero />}
