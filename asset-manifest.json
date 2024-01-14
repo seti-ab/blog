@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/blog/static/css/main.2ff043f7.css",
-    "main.js": "/blog/static/js/main.6b9c89fc.js",
+    "main.js": "/blog/static/js/main.20f894a6.js",
     "static/media/business-technology.jpg": "/blog/static/media/business-technology.dccaa70437d4597d5488.jpg",
     "static/media/hero.jpeg": "/blog/static/media/hero.4a06c781d7baf8789387.jpeg",
     "static/media/networking-and-security.jpg": "/blog/static/media/networking-and-security.e5c01da1c576d0c7c92e.jpg",
@@ -16,10 +16,10 @@
     "static/media/logo.png": "/blog/static/media/logo.1d6a6aad80d2dc0c93a5.png",
     "index.html": "/blog/index.html",
     "main.2ff043f7.css.map": "/blog/static/css/main.2ff043f7.css.map",
-    "main.6b9c89fc.js.map": "/blog/static/js/main.6b9c89fc.js.map"
+    "main.20f894a6.js.map": "/blog/static/js/main.20f894a6.js.map"
   },
   "entrypoints": [
     "static/css/main.2ff043f7.css",
-    "static/js/main.6b9c89fc.js"
+    "static/js/main.20f894a6.js"
   ]
 }
